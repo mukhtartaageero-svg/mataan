@@ -14,18 +14,21 @@ href="{{ url_for('static', filename='style.css') }}">
 
 <h1>Create Account</h1>
 
-<form method="POST">
+<form action="/register" method="POST">
 
 <input
+type="text"
 name="username"
-placeholder="Username">
+placeholder="Username"
+required>
 
 <input
-name="password"
 type="password"
-placeholder="Password">
+name="password"
+placeholder="Password"
+required>
 
-<button>Create</button>
+<button type="submit">Create Account</button>
 
 </form>
 

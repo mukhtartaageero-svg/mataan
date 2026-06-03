@@ -3,6 +3,30 @@ from flask import Flask, render_template, request, redirect
 
 app = Flask(__name__)
 
+conn = sqlite3.connect("mataan.db")
+c = conn.cursor()
+
+c.execute("""
+CREATE TABLE IF NOT EXISTS users(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    username TEXT,
+    password TEXT
+)
+""")
+
+c.execute("""
+CREATE TABLE IF NOT EXISTS messages(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    sender TEXT,
+    receiver TEXT,
+    message TEXT
+)
+""")
+
+conn.commit()
+conn.close()
+
+
 @app.route("/")
 def index():
     return render_template("index.html")
@@ -24,10 +48,7 @@ def room():
     conn = sqlite3.connect("mataan.db")
     c = conn.cursor()
 
-    c.execute(
-        "SELECT sender, message FROM messages"
-    )
-
+    c.execute("SELECT sender, message FROM messages")
     messages = c.fetchall()
 
     conn.close()
@@ -117,4 +138,5 @@ def send():
     return redirect("/room")
 
 
-app.run(host="0.0.0.0", port=5000)
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000)
