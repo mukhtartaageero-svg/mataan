@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>MATAAN</title>
+
 <link rel="stylesheet"
 href="{{ url_for('static', filename='style.css') }}">
 </head>
@@ -15,13 +16,15 @@ href="{{ url_for('static', filename='style.css') }}">
 
 <p>Connect. Chat. Disappear.</p>
 
-<input type="text" placeholder="Username">
+<button onclick="location.href='/login'">
+Login
+</button>
 
-<input type="password" placeholder="Password">
-
-<button>Login</button>
-
-<button class="register">Register</button>
+<button
+class="register"
+onclick="location.href='/register'">
+Register
+</button>
 
 </div>
 
