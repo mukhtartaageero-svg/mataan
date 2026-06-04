@@ -40,6 +40,14 @@ body{
     margin:0;
 }
 
+.auth-page{
+    background:#000;
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
 h1{
     text-align:center;
     color:#a855f7;
