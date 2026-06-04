@@ -5,10 +5,15 @@
     font-family:sans-serif;
 }
 
+html,body{
+    width:100%;
+    height:100%;
+}
+
 body{
     background:#000;
     color:white;
-    height:100vh;
+    min-height:100vh;
 }
 
 /* LOGIN & REGISTER */
@@ -21,6 +26,18 @@ body{
     border-radius:20px;
     box-shadow:0 0 20px rgba(168,85,247,.3);
     margin:50px auto;
+}
+
+.login-page{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.login-page .card{
+    margin:0;
 }
 
 h1{
@@ -175,7 +192,6 @@ button{
     display:flex;
     flex-direction:column;
     justify-content:flex-end;
-
     min-height:calc(100vh - 150px);
 }
 
